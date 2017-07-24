@@ -21,7 +21,7 @@ class Dog: Hashable {
         self.age = age
     }
     
-    static func ==(lhs: Dog, rhs: Dog) -> Bool {
+    static func == (lhs: Dog, rhs: Dog) -> Bool {
         return lhs.uid == rhs.uid
     }
 }
@@ -108,6 +108,13 @@ sarah.logSalary() // prints: overridden
 
 
 //****************************** Static vs Class Functions ******************************//
+// https://stackoverflow.com/questions/25156377/what-is-the-difference-between-static-func-and-class-func-in-swift
+
+//: ![Alt text](imgFunc.png "One mistake in this chart i.e mentioned below")
+
+//: static and class both associate a method with a class, rather than an instance of a class. The difference is that subclasses can override class methods; they cannot override static methods.
+
+//: class properties will theoretically function in the same way (subclasses can override them), but they're not possible in Swift yet.
 
 class Simple {
     
@@ -115,33 +122,23 @@ class Simple {
         print("init method called in base")
     }
     
+    func normalFunc1() {
+        print("normalFunc1()")
+    }
+    
     class func one() {
         print("class - one()")
     }
-    
-    class func two() {
-        print("class - two()")
-    }
-    
+
     static func staticOne() {
         print("staticOne()")
-    }
-    
-    static func staticTwo() {
-        print("staticTwo()")
     }
     
     final func yesFinal() {
         print("yesFinal()")
     }
     
-    func normalFunc1() {
-        print("normalFunc1()")
-    }
-    
-    func normalFunc2() {
-        print("normalFunc2()")
-    }
+    var myNormalVar = "normal variable"
     
     //Class stored properties not yet supported in classes; did you mean 'static'?
     //    class var myClassVar1 = "class var1"
@@ -156,19 +153,36 @@ class Simple {
 }
 
 class SubSimple: Simple {
+    
+    //Error: Cannot redeclare normal func
+//    func normalFunc1(){
+//        
+//    }
+    
     //Successful override
-    override class func one() {
+    override func normalFunc1() {
+        print("subClass - normalFunc1()")
+    }
+    
+    //Successful redecleration of class func
+    func one(){
         print("subClass - one()")
     }
+
     //Successful override
-    override class func two () {
-        print("subClass - two()")
+    override class func one() {
+        print("overidden subClass - one()")
+    }
+    
+    // re-declaring static func
+    func staticOne() {
+        print("subclass - staticOne()")
     }
     
     //Error: Cannot overide static method
-    //    override static func staticOne() {
-    //
-    //    }
+    override static func staticOne() {
+        
+    }
     
     //error: Instance method overrides a 'final' instance method
     //    override final func yesFinal() {
@@ -185,12 +199,54 @@ class SubSimple: Simple {
 
 
 print(Simple.one())
-print(Simple.two())
 print(Simple.staticOne())
-print(Simple.staticTwo())
 print(Simple.yesFinal(Simple()))
 print(SubSimple.one())
 print(Simple.myStaticVar)
 print(Simple.myClassVar)
 print(SubSimple.myClassVar)
 
+
+
+
+
+
+
+//****************************** Protocol Oriented Programming ******************************//
+// https://www.youtube.com/watch?v=lBr8onqP_fM
+// https://www.youtube.com/watch?v=P6zT1BLBgEI
+// https://www.youtube.com/watch?v=exkaXqvbHiQ
+
+protocol Fruit {
+    var color: UIColor { get }
+    var canBecomeViral: Bool { get }
+}
+
+protocol Pen {
+    func draw()
+}
+
+struct Apple: Fruit, Pen {
+    var color: UIColor {
+        return UIColor.red
+    }
+    
+    func draw() {
+        // draw code
+    }
+}
+
+struct Pineapple: Fruit, Pen {
+    var color: UIColor {
+        return UIColor.yellow
+    }
+    
+    func draw() {
+        // draw code
+    }
+}
+
+//Protocol extension
+extension Fruit where Self:Pen {
+    var canBecomeViral: Bool { return true }
+}
