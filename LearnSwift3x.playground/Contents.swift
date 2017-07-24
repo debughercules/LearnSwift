@@ -177,7 +177,7 @@ class SubSimple: Simple {
     
     //Works fine
     override class var myClassVar: String {
-        return "class var in subclass"
+        return "class var in subclass hello"
     }
     
     //    override static var myStaticVar = "hii"
