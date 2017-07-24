@@ -3,7 +3,7 @@ import PlaygroundSupport
 
 //: Playground - noun: a place where people can play
 
-var str = "Hello, playground"
+var str = "Hello, playground ji"
 
 
 
