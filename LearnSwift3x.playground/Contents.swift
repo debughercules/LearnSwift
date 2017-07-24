@@ -1,8 +1,10 @@
+import UIKit
+import PlaygroundSupport
+
 //: Playground - noun: a place where people can play
 
-import UIKit
-
 var str = "Hello, playground"
+
 
 
 //****************************** Hashable and Equatable ******************************//
@@ -174,15 +176,15 @@ class SubSimple: Simple {
         print("overidden subClass - one()")
     }
     
-    // re-declaring static func
+    // re-declaring static func as normal func
     func staticOne() {
         print("subclass - staticOne()")
     }
     
     //Error: Cannot overide static method
-    override static func staticOne() {
-        
-    }
+//    override static func staticOne() {
+//        
+//    }
     
     //error: Instance method overrides a 'final' instance method
     //    override final func yesFinal() {
@@ -201,10 +203,12 @@ class SubSimple: Simple {
 print(Simple.one())
 print(Simple.staticOne())
 print(Simple.yesFinal(Simple()))
-print(SubSimple.one())
 print(Simple.myStaticVar)
 print(Simple.myClassVar)
 print(SubSimple.myClassVar)
+print(SubSimple.one())
+print(SubSimple.staticOne())
+print(SubSimple.staticOne())
 
 
 
