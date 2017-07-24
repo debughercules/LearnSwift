@@ -173,7 +173,9 @@ class SubSimple: Simple {
 
     //Successful override
     override class func one() {
-        print("overidden subClass - one()")
+        let x = Simple()
+        x.myNormalVar = "hello"
+        print("\(x.myNormalVar): overidden subClass - one()")
     }
     
     // re-declaring static func as normal func
@@ -187,9 +189,9 @@ class SubSimple: Simple {
 //    }
     
     //error: Instance method overrides a 'final' instance method
-    //    override final func yesFinal() {
-    //
-    //    }
+//    override final func yesFinal() {
+//        
+//    }
     
     //Works fine
     override class var myClassVar: String {
@@ -200,15 +202,15 @@ class SubSimple: Simple {
 }
 
 
-print(Simple.one())
-print(Simple.staticOne())
-print(Simple.yesFinal(Simple()))
-print(Simple.myStaticVar)
-print(Simple.myClassVar)
-print(SubSimple.myClassVar)
-print(SubSimple.one())
-print(SubSimple.staticOne())
-print(SubSimple.staticOne())
+Simple.one()
+Simple.staticOne()
+Simple.yesFinal(Simple())
+Simple.myStaticVar
+Simple.myClassVar
+SubSimple.myClassVar
+SubSimple.one()
+SubSimple.staticOne()
+
 
 
 
@@ -220,6 +222,20 @@ print(SubSimple.staticOne())
 // https://www.youtube.com/watch?v=lBr8onqP_fM
 // https://www.youtube.com/watch?v=P6zT1BLBgEI
 // https://www.youtube.com/watch?v=exkaXqvbHiQ
+
+//Protocol cannot iherit from a class
+//Protocol can inherit a protocol
+//Protocol can be inherited by clases, structs, enums (can may or may not implementation)
+//Protocols can be extented after swift 2, can be used to add default implementations to protocols.
+//Protocols extend to add additional implementaions to existing protocols
+
+//Struct cannot inherit from Class
+
+//****************************** POP (swift) vs OOPS (obj c) ******************************//
+//OOPS problem: Implicit sharing, object being passed shares refrence(classes refrense types) unlike Structs (Value types)
+//Apple is trying to make swift a safer language by avoiding implicit sharing issues , they started using Structs with POP instead of classes
+
+//Structs do not support inheritence (protocols used), but also classes support full inheritence (multiple inheritence not supported in Obj C, multi-level inheritence supported)
 
 protocol Fruit {
     var color: UIColor { get }
@@ -240,6 +256,13 @@ struct Apple: Fruit, Pen {
     }
 }
 
+//July 24 2017
+//SBI 8th of month last due date , 19th new bill gen
+//5192
+//5200
+//23 May 5900 via HDFC netbanking
+// www.sbicard.com make online payment , Pay neft, or payNET
+
 struct Pineapple: Fruit, Pen {
     var color: UIColor {
         return UIColor.yellow
@@ -250,7 +273,16 @@ struct Pineapple: Fruit, Pen {
     }
 }
 
+struct Mango: Fruit {
+    var canBecomeViral: Bool
+    var color: UIColor
+    
+}
+
 //Protocol extension
 extension Fruit where Self:Pen {
     var canBecomeViral: Bool { return true }
 }
+
+let x : Apple = Apple()
+print("Result: \(x.canBecomeViral)")
