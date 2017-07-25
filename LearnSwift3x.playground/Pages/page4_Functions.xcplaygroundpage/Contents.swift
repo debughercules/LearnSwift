@@ -1,11 +1,10 @@
-//: [Previous](@previous)
-
 /*: Bullet List
  ### Static vs Class Functions
  * Example using image in playgrounds
  * Static vs Class example
  */
-
+//: ---
+//: [Previous](@previous)
 //: [Next](@next)
 
 import Foundation
@@ -116,6 +115,12 @@ SubSimple.staticOne()
 
 /*:
  [Reference]: https://stackoverflow.com/questions/25156377/what-is-the-difference-between-static-func-and-class-func-in-swift/ "Some hover text"
- 
  For more information, see [Reference].
  */
+
+//: ---
+//: [Previous](@previous)
+//: [Next](@next)
+
+//: [Go back to first page](page1_Protocols)
+

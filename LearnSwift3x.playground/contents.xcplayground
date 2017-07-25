@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<playground version='6.0' target-platform='ios' display-mode='rendered'>
+<playground version='6.0' target-platform='ios' display-mode='raw'>
     <pages>
-        <page name='Protocols P1'/>
-        <page name='Hashable P2'/>
-        <page name='Classes P3'/>
-        <page name='Functions P4'/>
+        <page name='page1_Intro'/>
+        <page name='page2_Protocols'/>
+        <page name='page3_Classes'/>
+        <page name='page4_Functions'/>
+        <page name='page5_Closer'/>
+        <page name='page6_Multithreading'/>
     </pages>
 </playground>

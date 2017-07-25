@@ -1,17 +1,15 @@
-//: [Previous](@previous)
-
 /*: Bullet List
  ### Classes
  * Abstract Class 1
  * Abstract Class 2
  */
-
+//: ---
+//: [Previous](@previous)
 //: [Next](@next)
 
 
 import Foundation
 
-//****************************** Absrtact Class ******************************//
 
 protocol Employee {
     var annualSalary: Int {get}
@@ -38,4 +36,8 @@ struct SoftwareEngineer: Employee {
 let sarah = SoftwareEngineer(annualSalary: 1000000)
 sarah.logSalary() // prints: overridden
 (sarah as Employee).logSalary() // prints: $100000 per year or $3846 biweekly
+
+//: ---
+//: [Previous](@previous)
+//: [Next](@next)
 
