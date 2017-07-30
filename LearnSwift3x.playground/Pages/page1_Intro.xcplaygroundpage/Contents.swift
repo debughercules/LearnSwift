@@ -16,5 +16,5 @@
  */
 
 //: ---
-//: [Next](@next)
+//: [Next: Protocols](@next)
 
