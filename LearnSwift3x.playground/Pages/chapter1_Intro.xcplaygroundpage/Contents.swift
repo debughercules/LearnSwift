@@ -7,6 +7,8 @@
 //: Another **variable** of type __String__
 //: show Swift keywords such as `for` and `let` as monspaced font
 
+//Swift supports multiple paradigms: Object-Oriented Programming, Protocol Oriented Programming and Functional Programming
+
 /*:
  ## Points to Remember
  * Empty lines end the single line comment delimiter block
